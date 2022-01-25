@@ -1,5 +1,9 @@
-name: Kirti Demo 2nd
-on: [push]
+name: Kirti Demo
+on: 
+ push:
+    branches: [ main ]
+ pull_request:
+    branches: [ main ]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
