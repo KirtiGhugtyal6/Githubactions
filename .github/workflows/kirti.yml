@@ -1,0 +1,68 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Githubactions
+
+# Controls when the workflow will run
+on:name: GitHubActions 
+2
+on: [push]
+3
+jobs:
+4
+  Explore-GitHub-Actions:
+5
+    runs-on: ubuntu-latest
+6
+    steps:
+7
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+8
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+9
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+10
+      - name: Check out repository code
+11
+        uses: actions/checkout@v2
+12
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+13
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+14
+      - name: List files in the repository
+15
+        run: |
+16
+          ls ${{ github.workspace }}
+17
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
